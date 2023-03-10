@@ -20,3 +20,11 @@ Scenario planner analysis provide insights on optimal discounts for maximizing p
 
 5. Substitutability
 Substitutability analysis provide guidance on which pair of brands we should minimize having deep discounts at the same time.
+
+
+Objective: Following SKUs are removed:
+
+SKUs with very high test wmape: Caused due to some specific SKUs- can be looked into further but ignoring due to very few such SKUs
+SKUs with negative or very high elasticity: Negative elasticity is counter-intuitive and could be due to stock-outs and would require inventory data going back 2-3 years to investigate (however currently we don't have such historical inventory data). Also removing few very high wmape SKUs
+SKUs with avg. test period units very different from avg. train period units: Few SKUs have test period avg. units very different than train period avg. units, leading to high wmape
+SKUs that have very high baseline vs. actual units: Remove such few SKUs as they skew the total baseline
